@@ -32,13 +32,16 @@
         </div>
       </div>
     <p><div class="input-group flex-nowrap">
-  <span class="input-group-text" id="addon-wrapping">Вы:</span>
+  <span class="input-group-text" id="addon-wrapping">@</span>
   <input type="text" class="form-control" id="btn" placeholder="Сообщение" aria-label="Username" aria-describedby="addon-wrapping">
   <button type="button" class="btn btn-outline-primary" onclick="Btns()">Отправить</button>
 </div></p>
 <div class="alert alert-primary" id="botvalue" role="alert">
-    A simple primary alert—check it out!
+    NaN
   </div>
+  <hr style="height: 1px;
+  background-color: #ccc;
+  border: none;"/>
   <div class="accordion accordion-flush" id="accordionFlushExample">
     <div class="accordion-item">
       <h2 class="accordion-header">
@@ -51,17 +54,50 @@
             <button type="button" class="btn btn-outline-secondary" id="paste" onclick="copy()">Вставить Айди данных</button></div>
       </div>
     </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            Добавить фразу
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Фраза</span>
+                <input type="text" class="form-control" placeholder="Как дела?" aria-label="Как дела?" id="fr" aria-describedby="addon-wrapping">
+              </div>
+              <hr/>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Ответ 1</span>
+                <input type="text" class="form-control" placeholder="Всё норм" aria-label="Всё норм" id="a1" aria-describedby="addon-wrapping">
+              </div>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Ответ 2</span>
+                <input type="text" class="form-control" placeholder="Отлично!" aria-label="Отлично!" id="a2" aria-describedby="addon-wrapping">
+              </div>
+              <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Ответ 3</span>
+                <input type="text" class="form-control" placeholder="Всё супер!" aria-label="Всё супер!" id="a3" aria-describedby="addon-wrapping">
+              </div>
+              <button type="button" class="btn btn-outline-success" onclick="Addnew()">Добавить</button>
+          </div>
+        </div>
+      </div>
 
     <script>
         var val = document.getElementById('btn');
         var area = document.getElementById('botvalue');
+        var fr = document.getElementById('fr');
+        var a1 = document.getElementById('a1');
+        var a2 = document.getElementById('a2');
+        var a3 = document.getElementById('a3');
         let fras = [];
         let an1 = [];
         let an2 = [];
         let an3 = [];
         let rnd = 0;
-        let ready = 0;
-        area.innerHTML = 'Скажи :нов чтобы добавить новую фразу!';
+        area.innerHTML = 'Приветики))';
         function copy() {
             fras = val.value.split(' ')[0].split(',');
             an1 = val.value.split(' ')[1].split(',');
@@ -73,8 +109,6 @@
             area.innerHTML = `Данные бота: ${fras} ${an1} ${an2} ${an3}`;
         }
         function Btns() {
-            
-            if (val.value!=':нов') {
                 rnd = Math.random();
                 if (rnd<0.3) {
                     area.innerHTML = an1[fras.indexOf(val.value)];
@@ -85,31 +119,13 @@
                 } else {
                     area.innerHTML = an1[fras.indexOf(val.value)];
                 }
-            }
-            if (ready==4) {
-                an3.push(val.value);
-                area.innerHTML = 'готово!';
-                ready = 0;
-            }
-            if (ready==3) {
-                an2.push(val.value);
-                area.innerHTML = 'Введите третий ответ (поставьте # если нет)';
-                ready = 4;
-            }
-            if (ready==2) {
-                an1.push(val.value);
-                area.innerHTML = 'Введите второй ответ (поставьте # если нет)';
-                ready = 3;
-            }
-            if (ready==1) {
-                fras.push(val.value);
-                area.innerHTML = 'Введите первый ответ (объязательный)';
-                ready = 2;
-            }
-            if (val.value==':нов'&&ready==0) {
-                area.innerHTML = 'Введите новую фразу';
-                ready = 1;
-            }
+        }
+        function Addnew() {
+            fras.push(fr.value);
+            an1.push(a1.value);
+            an2.push(a2.value);
+            an3.push(a3.value);
+            area.innerHTML = 'Фраза добавлена успешно!';
         }
     </script>
 </body>
