@@ -25,6 +25,7 @@
     </style>
 </head>
 <body>
+    <audio id="notif" src="notify.mp3"></audio>
     <div class="card" style="width: 18rem;">
         <img src="stepan.png" class="card-img-top" alt="Бот Степа картинка">
         <div class="card-body">
@@ -126,6 +127,7 @@
             an2.push(a2.value);
             an3.push(a3.value);
             area.innerHTML = 'Фраза добавлена успешно!';
+            document.getElementById('notif').play();
         }
     </script>
 </body>
