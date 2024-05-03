@@ -109,10 +109,6 @@
             an2 = val.value.split(' ')[2].split(',');
             an3 = val.value.split(' ')[3].split(',');
 
-            fras = document.cookie.split(';')[0].split(',');
-            an1 = document.cookie.split(';')[1].split(',');
-            an2 = document.cookie.split(';')[2].split(',');
-            an3 = document.cookie.split(';')[3].split(',');
             area.innerHTML = 'Данные заменены успешно!';
         }
         function paste() {
@@ -139,9 +135,7 @@
             document.getElementById('notif').play();
         }
 
-document.cookie = encodeURIComponent(`${fras};${an1};${an2};${an3}`);
 
-alert(document.cookie);
     </script>
 </body>
 </html>
