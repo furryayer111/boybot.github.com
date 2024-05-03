@@ -52,8 +52,8 @@
       </h2>
       <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">  <button type="button" class="btn btn-outline-secondary" id="copy" onclick="paste()">Получить Айди данных</button>
-            <button type="button" class="btn btn-outline-secondary" id="paste" onclick="copy()">Вставить Айди данных</button></div>
           <button type="button" class="btn btn-outline-secondary" id="paste" onclick="load()">Подгрузить куки</button></div>
+            <button type="button" class="btn btn-outline-secondary" id="paste" onclick="copy()">Вставить Айди данных</button></div>
       </div>
     </div>
     <div class="accordion-item">
@@ -141,11 +141,10 @@ fras = document.cookie.split('^')[0].split(',');
             an2 = document.cookie.split('^')[2].split(',');
             an3 = document.cookie.split('^')[3].split(',');
             area.innerHTML = 'Данные заменены успешно!';
-        alert(document.cookie);
         }
     </script>
 
-      <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+     <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
     <img src="..." class="rounded me-2" alt="...">
     <strong class="me-auto">Cookie</strong>
@@ -155,6 +154,6 @@ fras = document.cookie.split('^')[0].split(',');
   <div class="toast-body">
     Привет! Мы используем куки для сохранения данных)
   </div>
-</div>
+</div> -->
 </body>
 </html>
