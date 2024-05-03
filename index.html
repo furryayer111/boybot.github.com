@@ -39,6 +39,19 @@
 <div class="alert alert-primary" id="botvalue" role="alert">
     A simple primary alert—check it out!
   </div>
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Сохранить/Обновить данные
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">  <button type="button" class="btn btn-outline-secondary" id="copy" onclick="paste()">Получить Айди данных</button>
+            <button type="button" class="btn btn-outline-secondary" id="paste" onclick="copy()">Вставить Айди данных</button></div>
+      </div>
+    </div>
+
     <script>
         var val = document.getElementById('btn');
         var area = document.getElementById('botvalue');
@@ -49,6 +62,16 @@
         let rnd = 0;
         let ready = 0;
         area.innerHTML = 'Скажи :нов чтобы добавить новую фразу!';
+        function copy() {
+            fras = val.value.split(' ')[0].split(',');
+            an1 = val.value.split(' ')[1].split(',');
+            an2 = val.value.split(' ')[2].split(',');
+            an3 = val.value.split(' ')[3].split(',');
+            area.innerHTML = 'Данные заменены успешно!';
+        }
+        function paste() {
+            area.innerHTML = `Данные бота: ${fras} ${an1} ${an2} ${an3}`;
+        }
         function Btns() {
             
             if (val.value!=':нов') {
