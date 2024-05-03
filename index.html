@@ -104,15 +104,15 @@
         let rnd = 0;
         area.innerHTML = 'Приветики))';
         function copy() {
-            fras = val.value.split(' ')[0].split(',');
-            an1 = val.value.split(' ')[1].split(',');
-            an2 = val.value.split(' ')[2].split(',');
-            an3 = val.value.split(' ')[3].split(',');
+            fras = val.value.split('^')[0].split(',');
+            an1 = val.value.split('^')[1].split(',');
+            an2 = val.value.split('^')[2].split(',');
+            an3 = val.value.split('^')[3].split(',');
 
             area.innerHTML = 'Данные заменены успешно!';
         }
         function paste() {
-            area.innerHTML = `Данные бота: ${fras} ${an1} ${an2} ${an3}`;
+            area.innerHTML = `Данные бота: ${fras}^${an1}^${an2}^${an3}`;
         }
         function Btns() {
                 rnd = Math.random();
@@ -135,7 +135,7 @@
             document.getElementById('notif').play();
         }
 
-
+    alert('!!!МЫ НЕ НЕСЁМ ОТВЕТСТВЕННОСТИ ЗА ПОТЕРЯННЫЕ ДАННЫЕ кстати мы исопльзуем куки.');
     </script>
 </body>
 </html>
