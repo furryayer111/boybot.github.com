@@ -132,10 +132,10 @@
             an2.push(a2.value);
             an3.push(a3.value);
             area.innerHTML = 'Фраза добавлена успешно!';
+    document.cookie = `${fras}^${an1}^${an2}^${an3}`
             document.getElementById('notif').play();
         }
-
-    alert('!!!МЫ НЕ НЕСЁМ ОТВЕТСТВЕННОСТИ ЗА ПОТЕРЯННЫЕ ДАННЫЕ кстати мы исопльзуем куки.');
+    alert('!!!МЫ НЕ НЕСЁМ ОТВЕТСТВЕННОСТИ ЗА ПОТЕРЯННЫЕ ДАННЫЕ кстати мы исопльзуем куки. ', document.cookie);
     </script>
 </body>
 </html>
