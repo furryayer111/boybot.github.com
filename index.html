@@ -126,12 +126,16 @@
                 rnd = Math.random();
                 if (rnd<0.3) {
                     area.innerHTML = an1[fras.indexOf(val.value)];
+                    speak(an1[fras.indexOf(val.value)]);
                 } else if (rnd<0.6&&an2[fras.indexOf(val.value)]!='#') {
                     area.innerHTML = an2[fras.indexOf(val.value)];
+                    speak(an2[fras.indexOf(val.value)]);
                 } else if (rnd<1&&an3[fras.indexOf(val.value)]!='#') {
                     area.innerHTML = an3[fras.indexOf(val.value)];
+                    speak(an3[fras.indexOf(val.value)]);
                 } else {
                     area.innerHTML = an1[fras.indexOf(val.value)];
+                    speak(an1[fras.indexOf(val.value)]);
                 }
         }
         function Addnew() {
@@ -150,7 +154,14 @@ fras = document.cookie.split('^')[0].split(',');
             an3 = document.cookie.split('^')[3].split(',');
             area.innerHTML = 'Данные заменены успешно!';
         }
-            alert('Usage version 0.0.1');
+            alert('Usage version 0.0.2');
+        function speak(args) {
+        const utterance = new SpeechSynthesisUtterance(args);
+        utterance.pitch = 0.3;
+        utterance.rate = 1.4;
+        utterance.volume = 1;
+        window.speechSynthesis.speak(utterance);
+        }
     </script>
 
      <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
