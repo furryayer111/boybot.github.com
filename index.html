@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Стёпа Бот</title>
+    <title>ЛюСя Бот</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
@@ -24,7 +24,6 @@
         }
         .tag {
             align-items: center;
-            align: center;
             text-align: center;
             display: block;
             margin-left: auto;
@@ -41,14 +40,16 @@
           <h5 class="card-title">Люся</h5>
         </div>
       </div>
-    <p><div class="input-group flex-nowrap">
-  <span class="input-group-text" id="addon-wrapping">@</span>
-  <input type="text" class="form-control" id="btn" placeholder="Сообщение" aria-label="Username" aria-describedby="addon-wrapping">
-  <button type="button" class="btn btn-outline-primary" onclick="Btns()">Отправить</button>
-</div></p>
-<div class="alert alert-primary" id="botvalue" role="alert">
-    NaN
-  </div>
+      <div class="alert alert-primary" id="botvalue" role="alert">
+        <div id="dialogue">
+          <p>Люся: привет)</p>
+        </div>
+      </div>
+      <p><div class="input-group flex-nowrap">
+      <span class="input-group-text" id="addon-wrapping">@</span>
+      <input type="text" class="form-control" id="btn" placeholder="Сообщение" aria-label="Username" aria-describedby="addon-wrapping">
+      <button type="button" class="btn btn-outline-primary" onclick="Btns()">Отправить</button>
+      </div></p>
   <hr style="height: 1px;
   background-color: #ccc;
   border: none;"/>
@@ -62,6 +63,7 @@
       <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">  <button type="button" class="btn btn-outline-secondary" id="copy" onclick="paste()">Получить Айди данных</button>
             <button type="button" class="btn btn-outline-secondary" id="paste" onclick="copy()">Вставить Айди данных</button></div>
+            <button type="button" class="btn btn-outline-secondary" style="margin:25px" onclick="load()">Добавить данные куки</button>
       </div>
     </div>
     <div class="accordion-item">
@@ -110,31 +112,31 @@
         let an2 = [];
         let an3 = [];
         let rnd = 0;
-        area.innerHTML = 'Приветики))';
         function copy() {
 
             fras = val.value.split('^')[0].split(',');
             an1 = val.value.split('^')[1].split(',');
             an2 = val.value.split('^')[2].split(',');
             an3 = val.value.split('^')[3].split(',');
-            area.innerHTML = 'Данные заменены успешно!';
+            area.innerHTML = area.innerHTML+'<p>Отладка: Данные заменены успешно!</p>';
         }
         function paste() {
-            area.innerHTML = `Данные бота: ${fras}^${an1}^${an2}^${an3}`;
+            area.innerHTML = area.innerHTML+`<p>Отладка: Данные бота: ${fras}^${an1}^${an2}^${an3}</p>`;
         }
         function Btns() {
+          area.innerHTML = area.innerHTML+'<p>Вы: '+val.value+'</p>';
                 rnd = Math.random();
                 if (rnd<0.3) {
-                    area.innerHTML = an1[fras.indexOf(val.value)];
+                    area.innerHTML = area.innerHTML+'<p>Люся: '+ an1[fras.indexOf(val.value)]+'</p>';
                     speak(an1[fras.indexOf(val.value)]);
                 } else if (rnd<0.6&&an2[fras.indexOf(val.value)]!='#') {
-                    area.innerHTML = an2[fras.indexOf(val.value)];
+                    area.innerHTML = area.innerHTML+'<p>Люся: '+ an2[fras.indexOf(val.value)]+'</p>';
                     speak(an2[fras.indexOf(val.value)]);
                 } else if (rnd<1&&an3[fras.indexOf(val.value)]!='#') {
-                    area.innerHTML = an3[fras.indexOf(val.value)];
+                    area.innerHTML = area.innerHTML+'<p>Люся: '+ an3[fras.indexOf(val.value)]+'</p>';
                     speak(an3[fras.indexOf(val.value)]);
                 } else {
-                    area.innerHTML = an1[fras.indexOf(val.value)];
+                    area.innerHTML = area.innerHTML+'<p>Люся: '+ an1[fras.indexOf(val.value)]+'</p>';
                     speak(an1[fras.indexOf(val.value)]);
                 }
         }
@@ -143,7 +145,7 @@
             an1.push(a1.value);
             an2.push(a2.value);
             an3.push(a3.value);
-            area.innerHTML = 'Фраза добавлена успешно!';
+            area.innerHTML = area.innerHTML+'<p>Отладка: Фраза добавлена успешно!</p>';
             document.cookie = `${fras}^${an1}^${an2}^${an3}`;
             document.getElementById('notif').play();
         }
@@ -152,29 +154,17 @@ fras = document.cookie.split('^')[0].split(',');
             an1 = document.cookie.split('^')[1].split(',');
             an2 = document.cookie.split('^')[2].split(',');
             an3 = document.cookie.split('^')[3].split(',');
-            area.innerHTML = 'Данные заменены успешно!';
+            area.innerHTML = area.innerHTML+'<p>Отладка: Фраза добавлена успешно!</p>';
         }
         function speak(args) {
         const utterance = new SpeechSynthesisUtterance(args);
-        utterance.pitch = 1;
+        utterance.pitch = 7;
         utterance.rate = 1.4;
         utterance.volume = 1;
         window.speechSynthesis.speak(utterance);
         }
     </script>
 
-     <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header">
-    <img src="..." class="rounded me-2" alt="...">
-    <strong class="me-auto">Cookie</strong>
-    <small>now</small>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-  </div>
-  <div class="toast-body">
-    Привет! Мы используем куки для сохранения данных)
-  </div>
-</div> -->
-      <button type="button" class="btn btn-outline-light" style="margin:25px" onclick="load()">Добавить данные куки</button>
 </div>
 </body>
 </html>
