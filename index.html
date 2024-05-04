@@ -156,7 +156,7 @@ fras = document.cookie.split('^')[0].split(',');
         }
         function speak(args) {
         const utterance = new SpeechSynthesisUtterance(args);
-        utterance.pitch = 0.3;
+        utterance.pitch = 1;
         utterance.rate = 1.4;
         utterance.volume = 1;
         window.speechSynthesis.speak(utterance);
