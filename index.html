@@ -144,7 +144,7 @@
             an2.push(a2.value);
             an3.push(a3.value);
             area.innerHTML = 'Фраза добавлена успешно!';
-    document.cookie = `${fras}^${an1}^${an2}^${an3}`;
+            document.cookie = `${fras}^${an1}^${an2}^${an3}`;
             document.getElementById('notif').play();
         }
         function load() {
@@ -174,7 +174,7 @@ fras = document.cookie.split('^')[0].split(',');
     Привет! Мы используем куки для сохранения данных)
   </div>
 </div> -->
-      <button type="button" class="btn btn-outline-light" onclick="Addnew()">Добавить данные куки</button>
+      <button type="button" class="btn btn-outline-light" style="margin:25px" onclick="load()">Добавить данные куки</button>
 </div>
 </body>
 </html>
